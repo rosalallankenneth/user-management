@@ -4,12 +4,12 @@ const Searchbar = () => {
   return (
     <div
       className="flex justify-between items-center container mx-auto mt-10 rounded-t-lg p-3"
-      style={tableGradientBg}
+      style={gradientBg}
     >
       <h2 className="text-white font-bold">User Management</h2>
       <div className="flex justify-end items-stretch">
         <input
-          className="text-white px-2 rounded-l-lg bg-theme-light outline-none focus:bg-gray-700"
+          className="text-white text-sm px-2 rounded-l-lg bg-theme-light outline-none focus:bg-gray-700"
           placeholder="Search..."
         />
         <label className="bg-theme-light p-2 rounded-r-lg">
@@ -32,7 +32,7 @@ const Searchbar = () => {
   );
 };
 
-const tableGradientBg = {
+const gradientBg = {
   background:
     "rgb(41,41,50) linear-gradient(120deg, rgba(41,41,50,1) 0%, rgba(28,28,36,1) 50%, rgba(19,19,26,1) 100%)"
 };

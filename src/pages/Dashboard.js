@@ -11,7 +11,7 @@ const Dashboard = () => {
     <div className="py-10 px-3">
       <AddUserSection />
       <Searchbar />
-      <table className="container mx-auto rounded-b-lg" style={tableGradientBg}>
+      <table className="container mx-auto rounded-b-lg" style={gradientBg}>
         <TableHead />
         <TableBody />
       </table>
@@ -20,7 +20,7 @@ const Dashboard = () => {
   );
 };
 
-const tableGradientBg = {
+const gradientBg = {
   background:
     "rgb(41,41,50) linear-gradient(120deg, rgba(41,41,50,1) 0%, rgba(28,28,36,1) 50%, rgba(19,19,26,1) 100%)"
 };

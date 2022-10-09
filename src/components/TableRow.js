@@ -13,7 +13,7 @@ const TableRow = props => {
         {user.email}
       </td>
       <td className="px-1 py-3 text-gray-300 md:table-cell hidden">
-        {user.address.city}
+        {user.city}
       </td>
       <td className="flex justify-center items-center space-x-1 pl-1 pr-3 py-3">
         <button className="bg-orange-700 hover:bg-orange-500 p-2 rounded text-white">

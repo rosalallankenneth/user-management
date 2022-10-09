@@ -35,12 +35,10 @@ const users = {
       lastName: "Rosal",
       username: "aklrosal",
       email: "allankennethrosal@gmail.com",
-      address: {
-        streetBrgy: "P-8, San Antonio",
-        city: "Ozamiz",
-        zipcode: "7200"
-      },
-      mobile: "9272759241"
+      mobile: "9272759241",
+      streetBrgy: "P-8, San Antonio",
+      city: "Ozamiz",
+      zipcode: "7200"
     }
   ]
 };
