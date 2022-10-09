@@ -5,12 +5,13 @@ import { toggleAddModal } from "../redux/actions/eventsActions";
 const AddUserSection = () => {
   const dispatch = useDispatch();
   const handleToggleModal = () => dispatch(toggleAddModal());
+  const dateTodayPh = getCurrentDate();
 
   return (
-    <div className="flex justify-between items-center container mx-auto">
+    <div className="flex justify-between items-center sm:flex-row sm:space-y-0 flex-col space-y-5 container mx-auto">
       <div className="flex flex-col justify-center items-start space-y-2">
         <h6 className="text-white font-bold text-xl">Welcome, John Doe!</h6>
-        <small className="text-gray-400">Monday, 10 October 2022</small>
+        <small className="text-gray-400">{dateTodayPh}</small>
       </div>
       <button
         className="flex justify-center items-center space-x-3 bg-color py-2 px-5 rounded-lg shadow-none hover:bg-blue-500 shadow-md shadow-blue-700"
@@ -36,6 +37,19 @@ const AddUserSection = () => {
         <span className="text-white text-sm">Add New User</span>
       </button>
     </div>
+  );
+};
+
+export const getCurrentDate = () => {
+  return new Date().toLocaleDateString(
+    {},
+    {
+      timeZone: "Asia/Manila",
+      month: "long",
+      day: "2-digit",
+      year: "numeric",
+      weekday: "long"
+    }
   );
 };
 

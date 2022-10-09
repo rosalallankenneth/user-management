@@ -8,7 +8,7 @@ import Appbar from "./components/Appbar";
 
 function App() {
   return (
-    <div className="bg-theme-primary w-screen h-screen font-themeFont">
+    <div className="bg-theme-primary w-screen min-h-screen font-themeFont">
       <Appbar />
       <Routes>
         <Route path="/" element={<Dashboard />} />

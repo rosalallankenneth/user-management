@@ -2,9 +2,9 @@
 const initialState = {
   isModalAddUserOpen: false,
   isModalViewUserOpen: false,
+  isModalUpdateUserOpen: false,
   updateUserId: null,
   viewUserId: null,
-  deleteUserId: null,
   searchResults: null
 };
 
@@ -17,15 +17,15 @@ export const eventsReducer = (state = initialState, action) => {
     case "TOGGLE_MODAL_VIEW":
       // toggle view modal visibility
       return { ...state, isModalViewUserOpen: !state.isModalViewUserOpen };
+    case "TOGGLE_MODAL_UPDATE":
+      // toggle update modal visibility
+      return { ...state, isModalUpdateUserOpen: !state.isModalUpdateUserOpen };
     case "SELECT_VIEW_USER":
       // set id for the viewed user
       return { ...state, viewUserId: action.payload };
     case "SELECT_UPDATE_USER":
       // set id for the user selected for update
       return { ...state, updateUserId: action.payload };
-    case "SELECT_DELETE_USER":
-      // set id for the user to be deleted
-      return { ...state, deleteUserId: action.payload };
     case "SET_SEARCH_RESULTS":
       // set user search results
       return { ...state, searchResults: action.payload };

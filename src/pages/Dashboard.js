@@ -7,9 +7,11 @@ import TableBody from "../components/TableBody";
 import AddUserSection from "../components/AddUserSection";
 import ModalAddUser from "../components/ModalAddUser";
 import ModalViewUser from "../components/ModalViewUser";
+import ModalUpdateUser from "../components/ModaUpdateUser";
 
 const Dashboard = () => {
   const viewUserId = useSelector(state => state.events.viewUserId);
+  const updateUserId = useSelector(state => state.events.updateUserId);
 
   return (
     <div className="py-10 px-3">
@@ -21,6 +23,7 @@ const Dashboard = () => {
       </table>
       <ModalAddUser />
       {viewUserId && <ModalViewUser />}
+      {updateUserId && <ModalUpdateUser />}
     </div>
   );
 };

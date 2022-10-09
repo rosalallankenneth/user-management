@@ -8,6 +8,11 @@ export const toggleViewModal = () => ({
   type: "TOGGLE_MODAL_VIEW"
 });
 
+// toggle update modal visible state
+export const toggleUpdateModal = () => ({
+  type: "TOGGLE_MODAL_UPDATE"
+});
+
 // select data of user to be updated
 export const selectUpdateUser = userId => ({
   type: "SELECT_UPDATE_USER",
@@ -17,12 +22,6 @@ export const selectUpdateUser = userId => ({
 // select data of user to be viewed
 export const selectViewUser = userId => ({
   type: "SELECT_VIEW_USER",
-  payload: userId
-});
-
-// select data of user to be deleted
-export const selectDeleteUser = userId => ({
-  type: "SELECT_DELETE_USER",
   payload: userId
 });
 

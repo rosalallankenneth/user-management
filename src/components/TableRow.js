@@ -2,8 +2,11 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import {
   selectViewUser,
-  toggleViewModal
+  selectUpdateUser,
+  toggleViewModal,
+  toggleUpdateModal
 } from "../redux/actions/eventsActions";
+import { deleteUser } from "../redux/actions/usersActions";
 
 const TableRow = props => {
   const { user } = props;
@@ -12,6 +15,20 @@ const TableRow = props => {
   const handleViewUserClick = () => {
     dispatch(selectViewUser(user.id));
     dispatch(toggleViewModal());
+  };
+
+  const handleEditUserClick = () => {
+    dispatch(selectUpdateUser(user.id));
+    dispatch(toggleUpdateModal());
+  };
+
+  const handleDeleteUser = () => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this user?"
+    );
+    if (confirmDelete) {
+      dispatch(deleteUser(user.id));
+    }
   };
 
   return (
@@ -47,7 +64,10 @@ const TableRow = props => {
             <line x1="3" y1="21" x2="10" y2="14" />
           </svg>
         </button>
-        <button className="bg-blue-700 hover:bg-blue-500 px-2 rounded text-white p-2">
+        <button
+          className="bg-blue-700 hover:bg-blue-500 px-2 rounded text-white p-2"
+          onClick={handleEditUserClick}
+        >
           <svg
             className="h-4 w-4 text-white"
             width="24"
@@ -65,7 +85,10 @@ const TableRow = props => {
             <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
           </svg>
         </button>
-        <button className="bg-red-700 hover:bg-red-500 p-2 rounded text-white">
+        <button
+          className="bg-red-700 hover:bg-red-500 p-2 rounded text-white"
+          onClick={handleDeleteUser}
+        >
           <svg
             className="h-4 w-4 text-white"
             width="24"

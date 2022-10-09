@@ -32,13 +32,13 @@ const Searchbar = () => {
 
   return (
     <div
-      className="flex justify-between items-center container mx-auto mt-10 rounded-t-lg p-3"
+      className="flex justify-between items-center sm:flex-row sm:space-y-0 flex-col space-y-3 container mx-auto mt-10 rounded-t-lg p-3"
       style={gradientBg}
     >
       <h2 className="text-white font-bold">User Management</h2>
-      <div className="flex justify-end items-stretch">
+      <div className="flex justify-end items-stretch sm:w-auto w-full">
         <input
-          className="text-white text-sm px-2 rounded-l-lg bg-theme-light outline-none focus:bg-gray-700"
+          className="text-white text-sm px-2 rounded-l-lg bg-theme-light outline-none focus:bg-gray-700 sm:w-auto w-full"
           placeholder="Search..."
           onChange={handleSearch}
         />

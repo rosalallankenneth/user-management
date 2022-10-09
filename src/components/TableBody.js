@@ -22,8 +22,14 @@ const TableBody = () => {
             </td>
           </tr>
         )
-      ) : (
+      ) : users.data.length > 0 ? (
         users.data.map(user => <TableRow key={user.id} user={user} />)
+      ) : (
+        <tr>
+          <td colSpan={5} className="text-gray-300 text-white text-center p-3">
+            Nothing to show so far.
+          </td>
+        </tr>
       )}
     </tbody>
   );
