@@ -1,12 +1,16 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import Searchbar from "../components/Searchbar";
 import TableHead from "../components/TableHead";
 import TableBody from "../components/TableBody";
 import AddUserSection from "../components/AddUserSection";
 import ModalAddUser from "../components/ModalAddUser";
+import ModalViewUser from "../components/ModalViewUser";
 
 const Dashboard = () => {
+  const viewUserId = useSelector(state => state.events.viewUserId);
+
   return (
     <div className="py-10 px-3">
       <AddUserSection />
@@ -16,6 +20,7 @@ const Dashboard = () => {
         <TableBody />
       </table>
       <ModalAddUser />
+      {viewUserId && <ModalViewUser />}
     </div>
   );
 };

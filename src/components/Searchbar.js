@@ -1,6 +1,35 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import { setSearchResults } from "../redux/actions/eventsActions";
 
 const Searchbar = () => {
+  const dispatch = useDispatch();
+  const users = useSelector(state => state.users);
+
+  const handleSearch = e => {
+    const searchItem = e.target.value;
+
+    if (searchItem === "") {
+      dispatch(setSearchResults(null));
+      return;
+    }
+
+    const found = users.data.filter(user => {
+      const match = Object.entries(user).filter(entry => {
+        const [key, value] = entry;
+        if (key === "id") return false;
+        if (value.indexOf(searchItem) < 0) return false;
+        return true;
+      });
+
+      if (match.length < 1) return false;
+      return true;
+    });
+
+    dispatch(setSearchResults(found));
+  };
+
   return (
     <div
       className="flex justify-between items-center container mx-auto mt-10 rounded-t-lg p-3"
@@ -11,6 +40,7 @@ const Searchbar = () => {
         <input
           className="text-white text-sm px-2 rounded-l-lg bg-theme-light outline-none focus:bg-gray-700"
           placeholder="Search..."
+          onChange={handleSearch}
         />
         <label className="bg-theme-light p-2 rounded-r-lg">
           <svg

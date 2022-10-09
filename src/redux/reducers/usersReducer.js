@@ -30,7 +30,7 @@ export const usersReducer = (state = users, action) => {
 const users = {
   data: [
     {
-      id: 1,
+      id: Math.random(),
       firstName: "Allan Kenneth",
       lastName: "Rosal",
       username: "aklrosal",

@@ -1,7 +1,18 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import {
+  selectViewUser,
+  toggleViewModal
+} from "../redux/actions/eventsActions";
 
 const TableRow = props => {
   const { user } = props;
+  const dispatch = useDispatch();
+
+  const handleViewUserClick = () => {
+    dispatch(selectViewUser(user.id));
+    dispatch(toggleViewModal());
+  };
 
   return (
     <tr>
@@ -16,7 +27,10 @@ const TableRow = props => {
         {user.city}
       </td>
       <td className="flex justify-center items-center space-x-1 pl-1 pr-3 py-3">
-        <button className="bg-orange-700 hover:bg-orange-500 p-2 rounded text-white">
+        <button
+          className="bg-orange-700 hover:bg-orange-500 p-2 rounded text-white"
+          onClick={handleViewUserClick}
+        >
           <svg
             className="h-4 w-4 text-white"
             viewBox="0 0 24 24"

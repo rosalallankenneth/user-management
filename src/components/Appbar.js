@@ -61,7 +61,7 @@ const Appbar = () => {
             <span className="text-sm sm:block hidden">About</span>
           </Link>
         </nav>
-        <button className="text-white text-sm">Night mode</button>
+        <div></div>
       </div>
     </header>
   );

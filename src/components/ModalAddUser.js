@@ -26,6 +26,8 @@ const reducer = (state, action) => {
 
 const ModalAddUser = () => {
   const isOpen = useSelector(state => state.events.isModalAddUserOpen);
+  const users = useSelector(state => state.users);
+
   const dispatch = useDispatch();
   const [state, dispatchLocal] = useReducer(reducer, initialState);
   const {
@@ -50,10 +52,45 @@ const ModalAddUser = () => {
   };
 
   const handleAddUserSubmit = () => {
-    dispatch(addUser({ ...state, id: Math.random() }));
+    // check for empty fields
+    const emptyFields = Object.values(state).filter(value => value === "");
+    if (emptyFields.length > 0) {
+      alert("Please make sure to fill out all the fields.");
+      return;
+    }
 
+    // find duplicate entries for username and email
+    const duplicates = findDuplicates(username, email);
+    if (duplicates.usernameDup) {
+      alert("The username provided is already taken.");
+      return;
+    }
+    if (duplicates.emailDup) {
+      alert("The email provided already exists.");
+      return;
+    }
+
+    // check mobile number format
+    if (mobile.length !== 10) {
+      alert("Please follow the 10 digit format for the mobile number.");
+      return;
+    }
+
+    dispatch(addUser({ ...state, id: Math.random() }));
     dispatchLocal({ type: "RESET" });
     handleToggleModal();
+  };
+
+  const findDuplicates = (username, email) => {
+    let usernameDup = false;
+    let emailDup = false;
+
+    users.data.forEach(user => {
+      if (user.username === username) usernameDup = true;
+      if (user.email === email) emailDup = true;
+    });
+
+    return { usernameDup, emailDup };
   };
 
   return (
