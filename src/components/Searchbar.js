@@ -19,7 +19,8 @@ const Searchbar = () => {
       const match = Object.entries(user).filter(entry => {
         const [key, value] = entry;
         if (key === "id") return false;
-        if (value.indexOf(searchItem) < 0) return false;
+        if (value.toLowerCase().indexOf(searchItem.toLowerCase()) < 0)
+          return false;
         return true;
       });
 

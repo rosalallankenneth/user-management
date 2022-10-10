@@ -1,7 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { toggleViewModal } from "../redux/actions/eventsActions";
+import {
+  toggleViewModal,
+  selectViewUser
+} from "../redux/actions/eventsActions";
 
 const ModalViewUser = () => {
   const dispatch = useDispatch();
@@ -23,6 +26,7 @@ const ModalViewUser = () => {
 
   const handleToggleModal = () => {
     dispatch(toggleViewModal());
+    dispatch(selectViewUser(null));
   };
 
   return (

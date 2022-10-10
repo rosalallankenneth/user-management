@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import {
   selectViewUser,
   selectUpdateUser,
+  setSearchResults,
   toggleViewModal,
   toggleUpdateModal
 } from "../redux/actions/eventsActions";
@@ -20,6 +21,7 @@ const TableRow = props => {
   const handleEditUserClick = () => {
     dispatch(selectUpdateUser(user.id));
     dispatch(toggleUpdateModal());
+    dispatch(setSearchResults(null));
   };
 
   const handleDeleteUser = () => {
@@ -28,6 +30,7 @@ const TableRow = props => {
     );
     if (confirmDelete) {
       dispatch(deleteUser(user.id));
+      dispatch(setSearchResults(null));
     }
   };
 

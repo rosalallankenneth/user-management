@@ -12,9 +12,7 @@ const TableBody = () => {
     <tbody>
       {searchResults !== null ? (
         searchResults.length > 0 ? (
-          searchResults.map(user => (
-            <TableSearchResults key={user.id} user={user} />
-          ))
+          searchResults.map(user => <TableRow key={user.id} user={user} />)
         ) : (
           <tr>
             <td
