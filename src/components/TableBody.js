@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import TableRow from "./TableRow";
+import TableSearchResults from "./TableSearchResults";
 
 const TableBody = () => {
   const users = useSelector(state => state.users);
@@ -11,7 +12,9 @@ const TableBody = () => {
     <tbody>
       {searchResults !== null ? (
         searchResults.length > 0 ? (
-          searchResults.map(user => <TableRow key={user.id} user={user} />)
+          searchResults.map(user => (
+            <TableSearchResults key={user.id} user={user} />
+          ))
         ) : (
           <tr>
             <td
